@@ -10,13 +10,19 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  SSH_USER: $(SSH_USER)
-  SSH_PASSWORD: $(SSH_PASSWORD)
-  SSH_HOST: $(SSH_HOST)
+- group: vm-credentials  # 👈 Aquí se cargan las variables
 
 steps:
 - script: echo "Starting deployment pipeline..."
   displayName: 'Start Message'
+
+- script: |
+    echo "SSH_USER=$SSH_USER"
+    echo "SSH_HOST=$SSH_HOST"
+  displayName: 'Debug environment variables'
+  env:
+    SSH_USER: $(SSH_USER)
+    SSH_HOST: $(SSH_HOST)
 
 - script: |
     sudo apt-get update
@@ -24,12 +30,12 @@ steps:
   displayName: 'Install sshpass'
 
 - script: |
-    echo "SSH_USER=$SSH_USER"
-    echo "SSH_HOST=$SSH_HOST"
     REMOTE_DIR="/home/$SSH_USER/myproject"
+    echo "Uploading to $SSH_USER@$SSH_HOST:$REMOTE_DIR"
     sshpass -p "$SSH_PASSWORD" rsync -avz --delete ./ "$SSH_USER@$SSH_HOST:$REMOTE_DIR/"
   displayName: 'Deploy files to remote VM'
   env:
     SSH_USER: $(SSH_USER)
     SSH_PASSWORD: $(SSH_PASSWORD)
     SSH_HOST: $(SSH_HOST)
+
