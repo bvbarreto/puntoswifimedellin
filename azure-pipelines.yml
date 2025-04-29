@@ -1,0 +1,33 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  SSH_USER: $(SSH_USER)
+  SSH_PASSWORD: $(SSH_PASSWORD)
+  SSH_HOST: $(SSH_HOST)
+  REMOTE_DIR: "/home/$(SSH_USER)/agentes/prueba"
+
+steps:
+- script: echo "Starting deployment pipeline..."
+  displayName: 'Start Message'
+
+- script: |
+    sudo apt-get update
+    sudo apt-get install -y sshpass
+  displayName: 'Install sshpass'
+
+- script: |
+    sshpass -p "$SSH_PASSWORD" rsync -avz --delete ./ "$SSH_USER@$SSH_HOST:$REMOTE_DIR/"
+  displayName: 'Deploy files to remote VM'
+  env:
+    SSH_USER: $(SSH_USER)
+    SSH_PASSWORD: $(SSH_PASSWORD)
+    SSH_HOST: $(SSH_HOST)
