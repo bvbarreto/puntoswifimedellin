@@ -1,0 +1,50 @@
+[2025-01-22 12:36:12,947.947] INFO [140142278850368] - get_response:OK : None
+[2025-01-22 12:36:12,947.947] INFO [140142278850368] - 127.0.0.1:58934 - "POST /notify/TASK1_DEVICES HTTP/1.1" 200
+[2025-01-22 13:10:01,530.530] INFO [140142278850368] - create:name='TASK1_DEVICES'
+[2025-01-22 13:10:01,531.531] INFO [140142278850368] - BEGIN (implicit)
+[2025-01-22 13:10:01,532.532] INFO [140142278850368] - SELECT tasks.id AS tasks_id, tasks.name AS tasks_name, tasks.enable AS tasks_enable, tasks.count AS tasks_count, tasks."countOK" AS "tasks_countOK", tasks."countError" AS "tasks_countError", tasks."lastOK" AS "tasks_lastOK", tasks."lastError" AS "tasks_lastError", tasks.log AS tasks_log 
+FROM tasks 
+WHERE tasks.name = ?
+ LIMIT ? OFFSET ?
+[2025-01-22 13:10:01,532.532] INFO [140142278850368] - [cached since 2117s ago] ('TASK1_DEVICES', 1, 0)
+[2025-01-22 13:10:01,533.533] INFO [140142278850368] - 127.0.0.1:58396 - "POST /create HTTP/1.1" 200
+[2025-01-22 13:10:01,533.533] INFO [140142216693312] - ROLLBACK
+[2025-01-22 13:11:30,150.150] INFO [140142278850368] - notify:TASK1_DEVICES:referenceId='20250122131000' state='OK' detail=None
+[2025-01-22 13:11:30,150.150] DEBUG [140142278850368] - referenceId=20250122131000, state=OK, detail=None
+[2025-01-22 13:11:30,150.150] INFO [140142278850368] - BEGIN (implicit)
+[2025-01-22 13:11:30,151.151] INFO [140142278850368] - SELECT tasks.id AS tasks_id, tasks.name AS tasks_name, tasks.enable AS tasks_enable, tasks.count AS tasks_count, tasks."countOK" AS "tasks_countOK", tasks."countError" AS "tasks_countError", tasks."lastOK" AS "tasks_lastOK", tasks."lastError" AS "tasks_lastError", tasks.log AS tasks_log 
+FROM tasks 
+WHERE tasks.name = ?
+ LIMIT ? OFFSET ?
+[2025-01-22 13:11:30,151.151] INFO [140142278850368] - [cached since 2206s ago] ('TASK1_DEVICES', 1, 0)
+[2025-01-22 13:11:30,152.152] INFO [140142278850368] - UPDATE tasks SET "countOK"=?, "lastOK"=? WHERE tasks.id = ?
+[2025-01-22 13:11:30,152.152] INFO [140142278850368] - [cached since 2117s ago] (10, '2025-01-22 13:11:30.151776', 3)
+[2025-01-22 13:11:30,152.152] INFO [140142278850368] - COMMIT
+[2025-01-22 13:11:30,153.153] INFO [140142278850368] - get_response:OK : None
+[2025-01-22 13:11:30,154.154] INFO [140142278850368] - 127.0.0.1:43522 - "POST /notify/TASK1_DEVICES HTTP/1.1" 200
+[2025-01-23 13:10:01,486.486] INFO [140142278850368] - create:name='TASK1_DEVICES'
+[2025-01-23 13:10:01,487.487] INFO [140142278850368] - BEGIN (implicit)
+[2025-01-23 13:10:01,488.488] INFO [140142278850368] - SELECT tasks.id AS tasks_id, tasks.name AS tasks_name, tasks.enable AS tasks_enable, tasks.count AS tasks_count, tasks."countOK" AS "tasks_countOK", tasks."countError" AS "tasks_countError", tasks."lastOK" AS "tasks_lastOK", tasks."lastError" AS "tasks_lastError", tasks.log AS tasks_log 
+FROM tasks 
+WHERE tasks.name = ?
+ LIMIT ? OFFSET ?
+[2025-01-23 13:10:01,488.488] INFO [140142278850368] - [cached since 8.852e+04s ago] ('TASK1_DEVICES', 1, 0)
+[2025-01-23 13:10:01,489.489] INFO [140142278850368] - 127.0.0.1:46522 - "POST /create HTTP/1.1" 200
+[2025-01-23 13:10:01,489.489] INFO [140142216693312] - ROLLBACK
+[2025-01-23 13:10:01,492.492] INFO [140142278850368] - notify:TASK1_DEVICES:referenceId='20250123131000' state='START' detail=None
+[2025-01-23 13:10:01,492.492] DEBUG [140142278850368] - referenceId=20250123131000, state=START, detail=None
+[2025-01-23 13:10:01,492.492] INFO [140142278850368] - BEGIN (implicit)
+[2025-01-23 13:10:01,492.492] INFO [140142278850368] - SELECT tasks.id AS tasks_id, tasks.name AS tasks_name, tasks.enable AS tasks_enable, tasks.count AS tasks_count, tasks."countOK" AS "tasks_countOK", tasks."countError" AS "tasks_countError", tasks."lastOK" AS "tasks_lastOK", tasks."lastError" AS "tasks_lastError", tasks.log AS tasks_log 
+FROM tasks 
+WHERE tasks.name = ?
+ LIMIT ? OFFSET ?
+[2025-01-23 13:10:01,492.492] INFO [140142278850368] - [cached since 8.852e+04s ago] ('TASK1_DEVICES', 1, 0)
+[2025-01-23 13:10:01,493.493] INFO [140142278850368] - UPDATE tasks SET count=? WHERE tasks.id = ?
+[2025-01-23 13:10:01,493.493] INFO [140142278850368] - [cached since 8.852e+04s ago] (15, 3)
+[2025-01-23 13:10:01,494.494] INFO [140142278850368] - COMMIT
+[2025-01-23 13:10:01,496.496] INFO [140142278850368] - get_response:OK : None
+[2025-01-23 13:10:01,496.496] INFO [140142278850368] - 127.0.0.1:46530 - "POST /notify/TASK1_DEVICES HTTP/1.1" 200
+[2025-01-24 10:49:39,693.693] INFO [140142278850368] - Shutting down
+[2025-01-24 10:49:39,794.794] INFO [140142278850368] - Waiting for application shutdown.
+[2025-01-24 10:49:39,794.794] INFO [140142278850368] - Application shutdown complete.
+[2025-01-24 10:49:39,794.794] INFO [140142278850368] - Finished server process [55904]
